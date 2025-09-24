@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Play, Download, Star, Users, MessageCircle, Gamepad2 } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const HeroSection = () => {
+  const { t } = useTranslation()
   const [currentMessage, setCurrentMessage] = useState(0)
   const [isTyping, setIsTyping] = useState(false)
 
@@ -17,10 +19,10 @@ const HeroSection = () => {
   ]
 
   const stats = [
-    { icon: Users, value: "38+", label: "Downloads" },
-    { icon: MessageCircle, value: "500+", label: "Messages" },
-    { icon: Star, value: "Neu!", label: "Addon" },
-    { icon: Gamepad2, value: "v1.3.0", label: "Version" }
+    { icon: Users, value: "38+", label: t('hero.stats.downloads') },
+    { icon: MessageCircle, value: "500+", label: t('hero.stats.messages') },
+    { icon: Star, value: t('hero.stats.new'), label: t('hero.stats.addon') },
+    { icon: Gamepad2, value: "v1.3.0", label: t('hero.stats.version') }
   ]
 
   useEffect(() => {
@@ -105,7 +107,7 @@ const HeroSection = () => {
               className="inline-flex items-center px-4 py-2 bg-party-primary/10 border border-party-primary/20 rounded-full text-party-primary text-sm font-medium mb-6 backdrop-blur-sm"
             >
               <Star className="w-4 h-4 mr-2" />
-                Motivational WoW Addon
+                {t('hero.title')}
             </motion.div>
 
             {/* Main title */}
@@ -131,11 +133,7 @@ const HeroSection = () => {
               transition={{ delay: 0.6 }}
               className="text-xl text-slate-300 mb-8 max-w-2xl"
             >
-              Das ultimative World of Warcraft Addon für{" "}
-              <span className="text-party-primary font-semibold">
-                motivierende Dungeon-Nachrichten
-              </span>{" "}
-              und automatische Begrüßungen. Bring dein Team zum Sieg!
+              {t('hero.subtitle')}
             </motion.p>
 
             {/* Dynamic message preview */}
@@ -175,7 +173,7 @@ const HeroSection = () => {
                 className="bg-gradient-to-r from-party-primary to-party-secondary text-black px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center space-x-2 hover:shadow-xl transition-all duration-300 neon-glow"
               >
                 <Download className="w-6 h-6" />
-                <span>Jetzt herunterladen</span>
+                <span>{t('hero.downloadCta')}</span>
               </motion.a>
               
               <motion.button
@@ -184,7 +182,7 @@ const HeroSection = () => {
                 className="border-2 border-party-primary text-party-primary px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center space-x-2 hover:bg-party-primary/10 transition-all duration-300 backdrop-blur-sm"
               >
                 <Play className="w-6 h-6" />
-                <span>Demo ansehen</span>
+                <span>{t('hero.demoCta')}</span>
               </motion.button>
             </motion.div>
 

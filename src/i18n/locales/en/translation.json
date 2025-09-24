@@ -11,13 +11,16 @@
   },
   "hero": {
     "title": "Motivational WoW Addon",
-    "subtitle": "Transform your Mythic+ runs with automatic motivational messages and boost team morale!",
+    "subtitle": "The ultimate World of Warcraft addon for motivational dungeon messages and automatic greetings. Lead your team to victory!",
     "downloadCta": "Download Now",
+    "demoCta": "Watch Demo",
     "githubCta": "View on GitHub",
     "stats": {
       "downloads": "Downloads",
-      "version": "Current Version",
-      "status": "New! Fresh on CurseForge"
+      "messages": "Messages",
+      "new": "New!",
+      "addon": "Addon",
+      "version": "Version"
     }
   },
   "features": {
@@ -47,7 +50,48 @@
       "teamMorale": {
         "title": "Team Morale Boost",
         "description": "Improves your group's mood and motivation"
+      },
+      "autoGreetings": {
+        "title": "Automatic Greetings",
+        "description": "Automatically greet new party members with over 25 different greeting messages."
+      },
+      "smartTiming": {
+        "title": "Smart Timing Detection",
+        "description": "Automatically detects dungeon start, Mythic+ countdown and completion for perfect message timing."
+      },
+      "mythicSuccess": {
+        "title": "Mythic+ Success Messages",
+        "description": "Special messages for successful key upgrades and motivating words for missed timers."
+      },
+      "customizable": {
+        "title": "Fully Customizable",
+        "description": "Edit, add or remove messages. Create custom profiles and share them with friends."
       }
+    },
+    "benefits": {
+      "title": "Proven Benefits",
+      "subtitle": "Why Players Use PartyMotivator",
+      "teamMorale": {
+        "title": "Better Team Morale",
+        "description": "Positive messages improve group atmosphere"
+      },
+      "timeSaving": {
+        "title": "Time Saving",
+        "description": "Automated communication saves time and effort"
+      },
+      "errorPrevention": {
+        "title": "Error Prevention",
+        "description": "Reduces toxic communication in difficult situations"
+      },
+      "successRate": {
+        "title": "Higher Success Rate",
+        "description": "Motivated teams have statistically better performance"
+      }
+    },
+    "stats": {
+      "downloads": "Downloads",
+      "currentVersion": "Current Version",
+      "fresh": "Fresh on CurseForge"
     }
   },
   "demo": {
@@ -60,7 +104,9 @@
       "reset": "Reset", 
       "progress": "Demo Progress",
       "scenario": "Scenario: Mythic+ Dungeon Run",
-      "description": "PartyMotivator automatically sends motivating messages at the start and congratulates on successful completion."
+      "description": "PartyMotivator automatically sends motivating messages at the start and congratulates on successful completion.",
+      "scenarioDescription": "Mythic+ Dungeon Run",
+      "addonDescription": "PartyMotivator automatically sends motivating messages at the start and congratulates on successful completion."
     },
     "features": {
       "title": "Features in Demo",
@@ -76,54 +122,80 @@
     }
   },
   "gallery": {
-    "title": "Addon Screenshots",
-    "subtitle": "Discover the user-friendly interface and powerful features",
+    "title": "Screenshots",
+    "subtitle": "Discover the user interface and features of PartyMotivator in these detailed screenshots.",
+    "cta": "Ready to try PartyMotivator yourself?",
     "categories": {
       "all": "All",
-      "ui": "User Interface", 
-      "ingame": "In Game",
+      "ui": "UI",
+      "ingame": "In-Game",
       "features": "Features"
     },
     "screenshots": {
-      "mainUI": "Main Configuration",
-      "chatIntegration": "Chat Integration",
-      "mythicSetup": "Mythic+ Settings",
-      "holidayMessages": "Holiday Messages",
-      "profileManagement": "Profile Management",
-      "liveDemo": "Live Demo"
+      "mainUI": "Main Configuration - The clear main menu with all configuration options",
+      "chatIntegration": "Chat Integration - PartyMotivator in action with automatic messages in chat",
+      "mythicSetup": "Mythic+ Setup - Special configuration for Mythic+ dungeons",
+      "holidayMessages": "Holiday Messages - Seasonal messages for WoW events",
+      "profileManagement": "Profile Management - Import/Export of message profiles",
+      "liveDemo": "Live Demo - PartyMotivator during a dungeon run"
     }
   },
   "download": {
-    "title": "Download PartyMotivator",
-    "subtitle": "Choose your preferred download method and get started today!",
+    "title": "Download Now",
+    "subtitle": "PartyMotivator is free and installs in minutes. Improve your dungeon experience today!",
     "curseforge": {
       "title": "CurseForge",
-      "description": "Official release with automatic updates",
+      "description": "Official version with auto-updates",
       "stats": "Downloads",
       "cta": "Download from CurseForge"
     },
     "github": {
       "title": "GitHub",
-      "description": "Source code, issues, and developer resources",
+      "description": "Source code and releases",
       "cta": "View on GitHub"
     },
-    "installation": {
-      "title": "Installation",
-      "steps": {
-        "download": "Download the addon",
-        "extract": "Extract to Interface/AddOns/",
-        "restart": "Restart World of Warcraft"
+    "direct": {
+      "title": "Direct Download",
+      "description": "Direct ZIP file"
+    },
+    "features": {
+      "secure": {
+        "title": "Safe & Stable",
+        "description": "Tested by thousands of players"
+      },
+      "ready": {
+        "title": "Ready to Use",
+        "description": "No configuration required"
+      },
+      "community": {
+        "title": "Community Support",
+        "description": "Active community & updates"
       }
+    },
+    "installation": {
+      "title": "Installation in 3 Steps",
+      "step1Title": "Download",
+      "step1Description": "Download PartyMotivator from CurseForge or GitHub",
+      "step2Title": "Extract",
+      "step2Description": "Extract the file to your WoW AddOns folder",
+      "step3Title": "Play",
+      "step3Description": "Restart WoW and enjoy motivating messages!"
+    },
+    "requirements": {
+      "title": "System Requirements",
+      "wow": "World of Warcraft (Retail)",
+      "interface": "Interface Version 120000+",
+      "storage": "~1MB Hard Disk Space"
     }
   },
   "footer": {
     "brand": "PartyMotivator",
-    "description": "The ultimate WoW addon for motivational messages in dungeons and Mythic+ runs.",
+    "brandDescription": "The ultimate World of Warcraft addon for motivational dungeon messages. Developed with ❤️ for the WoW community.",
     "navigation": {
-      "title": "Navigation",
+      "title": "Addon",
       "features": "Features",
-      "demo": "Demo", 
-      "gallery": "Gallery",
+      "demo": "Demo",
+      "gallery": "Screenshots",
       "download": "Download"
     },
     "community": {
@@ -144,32 +216,85 @@
       "privacy": "Privacy Policy",
       "license": "License"
     },
-    "copyright": "Made with ❤️ for the WoW Community"
+    "latest": "Latest",
+    "disclaimer": "World of Warcraft® is a registered trademark of Blizzard Entertainment, Inc. PartyMotivator is an unofficial addon and is not affiliated with Blizzard Entertainment. This project is open source and developed voluntarily for the WoW community.",
+    "copyright": "© {{year}} PartyMotivator. All rights reserved."
   },
   "legal": {
     "impressum": {
       "title": "Legal Notice",
-      "operator": "Operator",
+      "operator": "Information according to § 5 TMG",
+      "responsible": "Responsible for content",
       "contact": "Contact",
       "disclaimer": "Disclaimer",
-      "wowDisclaimer": "WoW/Blizzard Notice",
-      "dataCollection": "Data Collection"
+      "contentLiability": "Content Liability",
+      "contentLiabilityText": "As a service provider, we are responsible for our own content on these pages according to general laws pursuant to § 7 Abs.1 TMG.",
+      "linkLiability": "Link Liability",
+      "linkLiabilityText": "Our offer contains links to external websites of third parties. The respective provider is always responsible for the content of the linked pages.",
+      "copyright": "Copyright",
+      "copyrightText": "The content and works created by the site operators on these pages are subject to German copyright law.",
+      "addon": "PartyMotivator Addon",
+      "useAtOwnRisk": "Use at your own risk",
+      "useAtOwnRiskText": "The PartyMotivator addon is provided \"as is\". Use is at your own risk.",
+      "wow": "World of Warcraft",
+      "wowText": "World of Warcraft® is a registered trademark of Blizzard Entertainment, Inc. PartyMotivator is an unofficial addon and is not affiliated with Blizzard Entertainment.",
+      "openSource": "Open Source",
+      "openSourceText": "This project is open source and developed voluntarily for the WoW community.",
+      "privacy": "Privacy",
+      "noDataCollection": "No data collection",
+      "noDataCollectionText": "This website does not collect any personal data. The PartyMotivator addon runs completely locally on your computer.",
+      "lastUpdated": "Last updated"
     },
     "privacy": {
       "title": "Privacy Policy",
       "general": "General Information",
+      "generalText": "The protection of your personal data is of particular concern to us. This privacy policy informs you about the nature, scope and purpose of the processing of personal data by this website.",
       "responsible": "Responsible Party",
-      "dataCollection": "Data Collection",
-      "serverLogs": "Server Log Files", 
+      "responsibleText": "Responsible for data processing on this website is xMethface. Contact: support@partymotivator.dev",
+      "dataCollection": "Data Collection on this Website",
+      "dataCollectionText": "This website does not collect any personal data. No cookies are used for tracking purposes and no analytics services such as Google Analytics are integrated.",
+      "serverLogs": "Server Log Files",
+      "serverLogsText": "The provider of the pages automatically collects and stores information in so-called server log files, which your browser automatically transmits to us. These are: browser type and browser version, operating system used, referrer URL, hostname of the accessing computer, time of the server request, IP address. These data cannot be assigned to specific persons.",
       "addon": "PartyMotivator Addon",
+      "addonText": "The PartyMotivator addon processes and stores data exclusively locally on your computer within the World of Warcraft game. No data is sent to external servers or shared with third parties.",
       "rights": "Your Rights",
-      "changes": "Policy Changes"
+      "rightsText": "Since we do not process personal data, most GDPR rights do not apply. If you still have questions, you can contact us at any time.",
+      "changes": "Changes to this Privacy Policy",
+      "changesText": "We reserve the right to update this privacy policy as needed. You can always find the current version on this page.",
+      "contact": "Contact for Privacy Inquiries",
+      "lastUpdated": "Last updated",
+      "gdprCompliant": "GDPR compliant",
+      "privacyRespect": "This website respects your privacy and does not collect any personal data."
     },
     "license": {
       "title": "MIT License",
-      "allowed": "What's Allowed",
-      "required": "What's Required",
-      "fullText": "Full License Text"
+      "overview": "License Overview",
+      "overviewText": "PartyMotivator is licensed under the MIT License. This means: You can freely use, modify and distribute the addon.",
+      "allowed": "What you can do",
+      "allowedText": "The MIT License allows you to do almost anything with the code:",
+      "allowedItems": {
+        "use": "Use - For private and commercial purposes",
+        "modify": "Modify - Adapt and improve the code",
+        "distribute": "Distribute - Share with friends and community",
+        "sublicense": "Sublicense - Create your own projects from it"
+      },
+      "required": "What you must do",
+      "requiredText": "When using the code, you must observe the following points:",
+      "requiredItems": {
+        "copyright": "Keep license notice - Don't remove copyright notice",
+        "disclaimer": "Disclaimer - Use at your own risk",
+        "warranty": "No warranty - Software comes \"as is\""
+      },
+      "fullText": "Full MIT License",
+      "fullTextContent": "MIT License\n\nCopyright (c) 2025 PartyMotivator\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.",
+      "community": "Community & Contributing",
+      "communityText": "PartyMotivator is developed voluntarily for the WoW community.",
+      "contribute": "Contributing:",
+      "contributeItems": "Bug reports on GitHub, Feature requests on Discord, Pull requests for improvements, Share screenshots and feedback",
+      "communityJoin": "Community:",
+      "communityJoinText": "Join our Discord server for support and discussions!",
+      "footer": "MIT License | Open Source for the Community",
+      "footerText": "PartyMotivator - Developed with ❤️ for World of Warcraft players"
     }
   },
   "language": {

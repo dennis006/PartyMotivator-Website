@@ -129,6 +129,11 @@ const Header = () => {
             </motion.a>
           ))}
           
+          {/* Mobile Language Switcher */}
+          <div className="py-2">
+            <LanguageSwitcher />
+          </div>
+          
           {/* Mobile CTA */}
           <motion.a
             href="#download"

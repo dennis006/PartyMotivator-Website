@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Github, ExternalLink, Mail, Heart, Code, Users } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import Impressum from './Impressum'
 import Datenschutz from './Datenschutz'
 import Lizenz from './Lizenz'
 
 const Footer = () => {
+  const { t } = useTranslation()
   const currentYear = new Date().getFullYear()
   const [showImpressum, setShowImpressum] = useState(false)
   const [showDatenschutz, setShowDatenschutz] = useState(false)
@@ -13,21 +15,21 @@ const Footer = () => {
 
   const links = {
     addon: [
-      { name: "Download", href: "#download" },
-      { name: "Features", href: "#features" },
-      { name: "Screenshots", href: "#gallery" },
+      { name: t('footer.navigation.download'), href: "#download" },
+      { name: t('footer.navigation.features'), href: "#features" },
+      { name: t('footer.navigation.gallery'), href: "#gallery" },
       { name: "Changelog", href: "#" }
     ],
     community: [
-      { name: "GitHub", href: "https://github.com/dennis006/PartyMotivator", external: true },
-      { name: "CurseForge", href: "https://www.curseforge.com/wow/addons/partymotivator", external: true },
-      { name: "Discord", href: "https://discord.gg/bUsnWHAqRG", external: true },
-      { name: "Support", href: "https://discord.gg/bUsnWHAqRG", external: true }
+      { name: t('footer.community.github'), href: "https://github.com/dennis006/PartyMotivator", external: true },
+      { name: t('footer.community.curseforge'), href: "https://www.curseforge.com/wow/addons/partymotivator", external: true },
+      { name: t('footer.community.discord'), href: "https://discord.gg/bUsnWHAqRG", external: true },
+      { name: t('footer.support.discord'), href: "https://discord.gg/bUsnWHAqRG", external: true }
     ],
     legal: [
-      { name: "Impressum", href: "#", action: () => setShowImpressum(true) },
-      { name: "Datenschutz", href: "#", action: () => setShowDatenschutz(true) },
-      { name: "Lizenz", href: "#", action: () => setShowLizenz(true) }
+      { name: t('footer.legal.impressum'), href: "#", action: () => setShowImpressum(true) },
+      { name: t('footer.legal.privacy'), href: "#", action: () => setShowDatenschutz(true) },
+      { name: t('footer.legal.license'), href: "#", action: () => setShowLizenz(true) }
     ]
   }
 
@@ -91,20 +93,18 @@ const Footer = () => {
               </div>
 
               <p className="text-slate-400 text-sm leading-relaxed mb-6">
-                Das ultimative World of Warcraft Addon für motivierende 
-                Dungeon-Nachrichten. Entwickelt mit <Heart className="inline w-4 h-4 text-red-400" /> 
-                {" "}für die WoW-Community.
+                {t('footer.brandDescription')}
               </p>
 
               {/* Stats */}
               <div className="grid grid-cols-2 gap-4">
                 <div className="text-center p-3 bg-slate-800/50 backdrop-blur-sm rounded-lg">
                   <div className="text-lg font-bold text-party-primary">38+</div>
-                  <div className="text-xs text-slate-500">Downloads</div>
+                  <div className="text-xs text-slate-500">{t('hero.stats.downloads')}</div>
                 </div>
                 <div className="text-center p-3 bg-slate-800/50 backdrop-blur-sm rounded-lg">
                   <div className="text-lg font-bold text-party-secondary">v1.3.0</div>
-                  <div className="text-xs text-slate-500">Latest</div>
+                  <div className="text-xs text-slate-500">{t('footer.latest')}</div>
                 </div>
               </div>
             </motion.div>
@@ -119,7 +119,7 @@ const Footer = () => {
                 viewport={{ once: true }}
               >
                 <h3 className="text-lg font-bold text-white mb-4 font-gaming">
-                  Addon
+                  {t('footer.navigation.title')}
                 </h3>
                 <ul className="space-y-3">
                   {links.addon.map((link) => (
@@ -144,7 +144,7 @@ const Footer = () => {
                 viewport={{ once: true }}
               >
                 <h3 className="text-lg font-bold text-white mb-4 font-gaming">
-                  Community
+                  {t('footer.community.title')}
                 </h3>
                 <ul className="space-y-3">
                   {links.community.map((link) => (
@@ -172,7 +172,7 @@ const Footer = () => {
                 viewport={{ once: true }}
               >
                 <h3 className="text-lg font-bold text-white mb-4 font-gaming">
-                  Rechtliches
+                  {t('footer.legal.title')}
                 </h3>
                 <ul className="space-y-3">
                   {links.legal.map((link) => (
@@ -204,8 +204,7 @@ const Footer = () => {
             {/* Copyright */}
             <div className="flex items-center space-x-4 text-sm text-slate-500">
               <span>
-                © {currentYear} PartyMotivator by{" "}
-                <span className="text-party-primary font-medium">xMethface</span>
+                {t('footer.copyright', { year: currentYear })}
               </span>
               <div className="flex items-center space-x-1">
                 <Code size={14} />
@@ -251,10 +250,7 @@ const Footer = () => {
           {/* World of Warcraft Disclaimer */}
           <div className="mt-6 pt-6 border-t border-slate-800/50">
             <p className="text-xs text-slate-500 text-center leading-relaxed">
-              World of Warcraft® ist ein eingetragenes Markenzeichen von Blizzard Entertainment, Inc. 
-              PartyMotivator ist ein inoffizielles Addon und steht in keiner Verbindung zu Blizzard Entertainment.
-              <br />
-              Dieses Projekt ist Open Source und wird ehrenamtlich für die WoW-Community entwickelt.
+              {t('footer.disclaimer')}
             </p>
           </div>
         </motion.div>

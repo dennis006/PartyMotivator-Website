@@ -1,12 +1,15 @@
 import { motion } from 'framer-motion'
 import { Download, Github, ExternalLink, Shield, Zap, Users, Star } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const DownloadSection = () => {
+  const { t } = useTranslation()
+  
   const downloadOptions = [
     {
       platform: "CurseForge",
       icon: ExternalLink,
-      description: "Offizielle Version mit Auto-Updates",
+      description: t('download.curseforge.description'),
       url: "https://www.curseforge.com/wow/addons/partymotivator",
       primary: true,
       stats: "38+ Downloads"
@@ -14,7 +17,7 @@ const DownloadSection = () => {
     {
       platform: "GitHub",
       icon: Github,
-      description: "Quellcode und Releases",
+      description: t('download.github.description'),
       url: "https://github.com/dennis006/PartyMotivator",
       primary: false,
       stats: "Open Source"
@@ -22,7 +25,7 @@ const DownloadSection = () => {
     {
       platform: "Direct Download",
       icon: Download,
-      description: "Direkte ZIP-Datei",
+      description: t('download.direct.description'),
       url: "#", // Hier später echte URL
       primary: false,
       stats: "v1.3.0"
@@ -32,18 +35,18 @@ const DownloadSection = () => {
   const features = [
     {
       icon: Shield,
-      title: "Sicher & Stabil",
-      description: "Von tausenden Spielern getestet"
+      title: t('download.features.secure.title'),
+      description: t('download.features.secure.description')
     },
     {
       icon: Zap,
-      title: "Sofort Einsatzbereit",
-      description: "Keine Konfiguration erforderlich"
+      title: t('download.features.ready.title'),
+      description: t('download.features.ready.description')
     },
     {
       icon: Users,
-      title: "Community Support",
-      description: "Aktive Community & Updates"
+      title: t('download.features.community.title'),
+      description: t('download.features.community.description')
     }
   ]
 
@@ -96,12 +99,10 @@ const DownloadSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-gaming font-bold mb-6">
-            <span className="text-white">Jetzt </span>
-            <span className="text-party-primary">herunterladen</span>
+            {t('download.title')}
           </h2>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            PartyMotivator ist kostenlos und in wenigen Minuten installiert. 
-            Verbessere deine Dungeon-Erfahrung noch heute!
+            {t('download.subtitle')}
           </p>
         </motion.div>
 
@@ -173,25 +174,25 @@ const DownloadSection = () => {
           className="bg-slate-800/50 backdrop-blur-sm rounded-3xl p-8 border border-party-primary/20 mb-16"
         >
           <h3 className="text-2xl font-gaming font-bold mb-6 text-center text-party-primary">
-            Installation in 3 Schritten
+            {t('download.installation.title')}
           </h3>
           
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
                 step: "1",
-                title: "Download",
-                description: "Lade PartyMotivator von CurseForge oder GitHub herunter"
+                title: t('download.installation.step1Title'),
+                description: t('download.installation.step1Description')
               },
               {
                 step: "2", 
-                title: "Extrahieren",
-                description: "Entpacke die Datei in deinen WoW AddOns Ordner"
+                title: t('download.installation.step2Title'),
+                description: t('download.installation.step2Description')
               },
               {
                 step: "3",
-                title: "Spielen",
-                description: "Starte WoW neu und genieße motivierende Nachrichten!"
+                title: t('download.installation.step3Title'),
+                description: t('download.installation.step3Description')
               }
             ].map((step, index) => (
               <motion.div
@@ -241,19 +242,19 @@ const DownloadSection = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <h4 className="text-lg font-bold text-white mb-4">Systemanforderungen</h4>
+          <h4 className="text-lg font-bold text-white mb-4">{t('download.requirements.title')}</h4>
           <div className="flex flex-wrap justify-center gap-4 text-sm text-slate-400">
             <div className="flex items-center space-x-2">
               <Star className="w-4 h-4 text-party-primary" />
-              <span>World of Warcraft (Retail)</span>
+              <span>{t('download.requirements.wow')}</span>
             </div>
             <div className="flex items-center space-x-2">
               <Star className="w-4 h-4 text-party-primary" />
-              <span>Interface Version 120000+</span>
+              <span>{t('download.requirements.interface')}</span>
             </div>
             <div className="flex items-center space-x-2">
               <Star className="w-4 h-4 text-party-primary" />
-              <span>~1MB Festplattenspeicher</span>
+              <span>{t('download.requirements.storage')}</span>
             </div>
           </div>
         </motion.div>

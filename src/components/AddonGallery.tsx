@@ -1,57 +1,64 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const AddonGallery = () => {
+  const { t } = useTranslation()
   const [selectedImage, setSelectedImage] = useState<number | null>(null)
 
   // Echte Screenshots vom PartyMotivator Addon
   const screenshots = [
     {
       id: 1,
-      title: "Hauptkonfiguration",
-      description: "Das übersichtliche Hauptmenü mit allen Einstellungsmöglichkeiten",
+      title: t('gallery.screenshots.mainUI'),
+      description: t('gallery.screenshots.mainUI'),
       category: "UI",
       image: "/images/screenshots/main-ui.png"
     },
     {
       id: 2,
-      title: "Chat Integration",
-      description: "PartyMotivator in Aktion - automatische Nachrichten im Chat",
+      title: t('gallery.screenshots.chatIntegration'),
+      description: t('gallery.screenshots.chatIntegration'),
       category: "In-Game",
       image: "/images/screenshots/chat-integration.png"
     },
     {
       id: 3,
-      title: "Mythic+ Setup", 
-      description: "Spezielle Konfiguration für Mythic+ Dungeons",
+      title: t('gallery.screenshots.mythicSetup'),
+      description: t('gallery.screenshots.mythicSetup'),
       category: "Features",
       image: "/images/screenshots/mythic-plus-setup.png"
     },
     {
       id: 4,
-      title: "Holiday Messages",
-      description: "Saisonale Nachrichten für WoW-Events",
+      title: t('gallery.screenshots.holidayMessages'),
+      description: t('gallery.screenshots.holidayMessages'),
       category: "Features", 
       image: "/images/screenshots/holiday-messages.png"
     },
     {
       id: 5,
-      title: "Profil-Management",
-      description: "Import/Export von Nachrichten-Profilen",
+      title: t('gallery.screenshots.profileManagement'),
+      description: t('gallery.screenshots.profileManagement'),
       category: "UI",
       image: "/images/screenshots/profile-management.png"
     },
     {
       id: 6,
-      title: "Live Demo",
-      description: "PartyMotivator während eines Dungeon-Runs",
+      title: t('gallery.screenshots.liveDemo'),
+      description: t('gallery.screenshots.liveDemo'),
       category: "In-Game",
       image: "/images/screenshots/live-demo.png"
     }
   ]
 
-  const categories = ["All", "UI", "In-Game", "Features"]
+  const categories = [
+    { key: "All", label: t('gallery.categories.all') },
+    { key: "UI", label: t('gallery.categories.ui') },
+    { key: "In-Game", label: t('gallery.categories.ingame') },
+    { key: "Features", label: t('gallery.categories.features') }
+  ]
   const [activeCategory, setActiveCategory] = useState("All")
 
   const filteredScreenshots = activeCategory === "All" 
@@ -91,11 +98,10 @@ const AddonGallery = () => {
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-gaming font-bold mb-6">
             <span className="text-white">Addon </span>
-            <span className="text-party-primary">Screenshots</span>
+            <span className="text-party-primary">{t('gallery.title')}</span>
           </h2>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            Entdecke die Benutzeroberfläche und Features von PartyMotivator 
-            in diesen detaillierten Screenshots.
+            {t('gallery.subtitle')}
           </p>
         </motion.div>
 
@@ -110,17 +116,17 @@ const AddonGallery = () => {
           <div className="flex space-x-2 bg-slate-800/50 backdrop-blur-sm rounded-2xl p-2 border border-party-primary/20">
             {categories.map((category) => (
               <motion.button
-                key={category}
+                key={category.key}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => setActiveCategory(category)}
+                onClick={() => setActiveCategory(category.key)}
                 className={`px-6 py-2 rounded-xl font-medium transition-all duration-300 ${
-                  activeCategory === category
+                  activeCategory === category.key
                     ? 'bg-gradient-to-r from-party-primary to-party-secondary text-black'
                     : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
                 }`}
               >
-                {category}
+                {category.label}
               </motion.button>
             ))}
           </div>
@@ -298,7 +304,7 @@ const AddonGallery = () => {
           className="text-center mt-16"
         >
           <p className="text-lg text-slate-400 mb-6">
-            Bereit, PartyMotivator selbst auszuprobieren?
+            {t('gallery.cta')}
           </p>
           <motion.a
             href="#download"
@@ -306,7 +312,7 @@ const AddonGallery = () => {
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center space-x-2 bg-gradient-to-r from-party-primary to-party-secondary text-black px-8 py-4 rounded-xl font-bold text-lg hover:shadow-xl transition-all duration-300 neon-glow"
           >
-            <span>Jetzt herunterladen</span>
+            <span>{t('hero.downloadCta')}</span>
           </motion.a>
         </motion.div>
       </div>

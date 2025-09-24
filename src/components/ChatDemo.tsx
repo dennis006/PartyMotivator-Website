@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Play, Pause, RotateCcw } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const ChatDemo = () => {
+  const { t } = useTranslation()
   const [isPlaying, setIsPlaying] = useState(true)
   const [currentStep, setCurrentStep] = useState(0)
   const [messages, setMessages] = useState<any[]>([])
@@ -151,12 +153,10 @@ const ChatDemo = () => {
           className="text-center mb-16"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-gaming font-bold mb-6">
-            <span className="text-party-primary">Live</span>{" "}
-            <span className="text-white">Demo</span>
+            {t('demo.title')}
           </h2>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            Erlebe PartyMotivator in Aktion! Sieh dir an, wie das Addon automatisch 
-            motivierende Nachrichten sendet und dein Team zum Erfolg führt.
+            {t('demo.subtitle')}
           </p>
         </motion.div>
 
@@ -171,7 +171,7 @@ const ChatDemo = () => {
           >
             <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-party-primary/20">
               <h3 className="text-2xl font-gaming font-bold mb-4 text-party-primary">
-                Demo Steuerung
+                {t('demo.controls.title')}
               </h3>
               
               <div className="flex space-x-4 mb-6">
@@ -186,7 +186,7 @@ const ChatDemo = () => {
                   }`}
                 >
                   {isPlaying ? <Pause size={18} /> : <Play size={18} />}
-                  <span>{isPlaying ? 'Pause' : 'Play'}</span>
+                  <span>{isPlaying ? t('demo.controls.pause') : t('demo.controls.play')}</span>
                 </motion.button>
 
                 <motion.button
@@ -196,14 +196,14 @@ const ChatDemo = () => {
                   className="flex items-center space-x-2 px-4 py-2 bg-slate-600 hover:bg-slate-700 text-white rounded-lg font-medium transition-colors"
                 >
                   <RotateCcw size={18} />
-                  <span>Reset</span>
+                  <span>{t('demo.controls.reset')}</span>
                 </motion.button>
               </div>
 
               <div className="space-y-4">
                 <div>
                   <div className="flex justify-between text-sm text-slate-400 mb-2">
-                    <span>Demo Fortschritt</span>
+                    <span>{t('demo.controls.progress')}</span>
                     <span>{currentStep}/{demoScenario.length}</span>
                   </div>
                   <div className="w-full bg-slate-700 rounded-full h-2">
@@ -218,11 +218,10 @@ const ChatDemo = () => {
 
                 <div className="text-sm text-slate-400">
                   <p className="mb-2">
-                    <strong className="text-party-primary">Szenario:</strong> Mythic+ Dungeon Run
+                    <strong className="text-party-primary">{t('demo.controls.scenario')}:</strong> {t('demo.controls.scenarioDescription')}
                   </p>
                   <p>
-                    PartyMotivator sendet automatisch motivierende Nachrichten 
-                    zu Beginn und gratuliert bei erfolgreichem Abschluss.
+                    {t('demo.controls.addonDescription')}
                   </p>
                 </div>
               </div>
@@ -230,23 +229,23 @@ const ChatDemo = () => {
 
             {/* Feature Highlights */}
             <div className="bg-slate-800/30 backdrop-blur-sm rounded-xl p-6 border border-party-secondary/20">
-              <h4 className="text-lg font-bold mb-3 text-party-secondary">Features in Demo</h4>
+              <h4 className="text-lg font-bold mb-3 text-party-secondary">{t('demo.features.title')}</h4>
               <ul className="space-y-2 text-sm text-slate-300">
                 <li className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-party-primary rounded-full"></div>
-                  <span>Automatische Motivationsnachrichten</span>
+                  <span>{t('demo.features.autoMotivation')}</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-party-primary rounded-full"></div>
-                  <span>Erfolgsnachrichten bei Key-Upgrade</span>
+                  <span>{t('demo.features.successMessages')}</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-party-primary rounded-full"></div>
-                  <span>Intelligente Timing-Erkennung</span>
+                  <span>{t('demo.features.smartTiming')}</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-party-primary rounded-full"></div>
-                  <span>Team-Moral Boost</span>
+                  <span>{t('demo.features.teamMorale')}</span>
                 </li>
               </ul>
             </div>
@@ -267,10 +266,10 @@ const ChatDemo = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-2">
                     <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                    <span className="text-white font-medium">Party Chat</span>
+                    <span className="text-white font-medium">{t('demo.chat.header')}</span>
                   </div>
                   <div className="text-party-primary text-sm font-gaming">
-                    PartyMotivator Active
+                    {t('demo.chat.active')}
                   </div>
                 </div>
               </div>
@@ -313,7 +312,7 @@ const ChatDemo = () => {
               {/* Chat Input (disabled) */}
               <div className="border-t border-party-primary/20 p-3">
                 <div className="bg-slate-700 rounded px-3 py-2 text-slate-400 text-sm">
-                  PartyMotivator handles this automatically...
+                  {t('demo.chat.placeholder')}
                 </div>
               </div>
             </div>

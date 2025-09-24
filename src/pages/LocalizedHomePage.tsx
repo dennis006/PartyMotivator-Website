@@ -18,7 +18,6 @@ import DownloadSection from '../components/DownloadSection';
 import Footer from '../components/Footer';
 import ParticleBackground from '../components/ParticleBackground';
 import SEOHead from '../components/SEOHead';
-import LanguageSwitcher from '../components/LanguageSwitcher';
 
 // Utils
 import { SupportedLocale } from '../lib/cookies';
@@ -49,10 +48,6 @@ const LocalizedHomePage = ({ locale }: LocalizedHomePageProps) => {
       {/* Particle Background */}
       <ParticleBackground />
       
-      {/* Language Switcher - Fixed Position */}
-      <div className="fixed top-4 right-4 z-50">
-        <LanguageSwitcher />
-      </div>
 
       {/* Main content */}
       <motion.div

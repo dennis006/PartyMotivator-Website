@@ -11,48 +11,50 @@ import {
   Heart,
   Star
 } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const FeatureShowcase = () => {
+  const { t } = useTranslation()
   const features = [
     {
       icon: MessageCircle,
-      title: "500+ Motivations-Nachrichten",
-      description: "Eine riesige Sammlung von motivierenden Nachrichten für jeden Anlass - von Standard-Dungeons bis Mythic+ Runs.",
+      title: t('features.items.autoMessages.title'),
+      description: t('features.items.autoMessages.description'),
       color: "from-party-primary to-green-400",
       delay: 0.1
     },
     {
       icon: Users,
-      title: "Automatische Begrüßungen", 
-      description: "Begrüße neue Gruppenmitglieder automatisch mit über 25 verschiedenen Grußnachrichten.",
+      title: t('features.items.autoGreetings.title'),
+      description: t('features.items.autoGreetings.description'),
       color: "from-blue-400 to-party-primary",
       delay: 0.2
     },
     {
       icon: Zap,
-      title: "Intelligente Timing-Erkennung",
-      description: "Erkennt automatisch Dungeon-Start, Mythic+ Countdown und Completion für perfekte Nachrichten-Timing.",
+      title: t('features.items.smartTiming.title'),
+      description: t('features.items.smartTiming.description'),
       color: "from-party-secondary to-red-400",
       delay: 0.3
     },
     {
       icon: Trophy,
-      title: "Mythic+ Erfolgs-Nachrichten",
-      description: "Spezielle Nachrichten für erfolgreiche Key-Upgrades und motivierende Worte bei verpassten Timern.",
+      title: t('features.items.mythicSuccess.title'),
+      description: t('features.items.mythicSuccess.description'),
       color: "from-yellow-400 to-party-secondary",
       delay: 0.4
     },
     {
       icon: Calendar,
-      title: "Holiday-Nachrichten",
-      description: "Saisonale Nachrichten für Halloween, Winter Veil, Love is in the Air und andere WoW-Events.",
+      title: t('features.items.holidayMessages.title'),
+      description: t('features.items.holidayMessages.description'),
       color: "from-purple-400 to-pink-400",
       delay: 0.5
     },
     {
       icon: Settings,
-      title: "Vollständig Anpassbar",
-      description: "Bearbeite, füge hinzu oder entferne Nachrichten. Erstelle eigene Profile und teile sie mit Freunden.",
+      title: t('features.items.customizable.title'),
+      description: t('features.items.customizable.description'),
       color: "from-party-primary to-blue-400",
       delay: 0.6
     }
@@ -61,23 +63,23 @@ const FeatureShowcase = () => {
   const benefits = [
     {
       icon: Heart,
-      title: "Bessere Team-Moral",
-      description: "Positive Nachrichten verbessern die Gruppenatmosphäre"
+      title: t('features.benefits.teamMorale.title'),
+      description: t('features.benefits.teamMorale.description')
     },
     {
       icon: Clock,
-      title: "Zeitersparnis",
-      description: "Automatisierte Kommunikation spart Zeit und Aufwand"
+      title: t('features.benefits.timeSaving.title'),
+      description: t('features.benefits.timeSaving.description')
     },
     {
       icon: Shield,
-      title: "Fehlerprävention",
-      description: "Reduziert toxische Kommunikation in schwierigen Situationen"
+      title: t('features.benefits.errorPrevention.title'),
+      description: t('features.benefits.errorPrevention.description')
     },
     {
       icon: Star,
-      title: "Höhere Erfolgsrate",
-      description: "Motivierte Teams haben statistisch bessere Performance"
+      title: t('features.benefits.successRate.title'),
+      description: t('features.benefits.successRate.description')
     }
   ]
 
@@ -119,13 +121,10 @@ const FeatureShowcase = () => {
           className="text-center mb-20"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-gaming font-bold mb-6">
-            <span className="text-white">Warum </span>
-            <span className="text-party-primary">PartyMotivator</span>
-            <span className="text-white">?</span>
+            {t('features.title')}
           </h2>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            Das einzige Addon, das dein Team automatisch motiviert und die 
-            Dungeon-Erfahrung für alle Beteiligten verbessert.
+            {t('features.subtitle')}
           </p>
         </motion.div>
 
@@ -183,10 +182,10 @@ const FeatureShowcase = () => {
           className="text-center mb-16"
         >
           <h3 className="text-3xl font-gaming font-bold mb-4 text-party-secondary">
-            Bewiesene Vorteile
+            {t('features.benefits.title')}
           </h3>
           <p className="text-lg text-slate-400">
-            Warum Spieler PartyMotivator verwenden
+            {t('features.benefits.subtitle')}
           </p>
         </motion.div>
 
@@ -233,7 +232,7 @@ const FeatureShowcase = () => {
               >
                 38+
               </motion.div>
-              <div className="text-slate-300">Downloads</div>
+              <div className="text-slate-300">{t('features.stats.downloads')}</div>
             </div>
             <div>
               <motion.div
@@ -245,7 +244,7 @@ const FeatureShowcase = () => {
               >
                 v1.3.0
               </motion.div>
-              <div className="text-slate-300">Aktuelle Version</div>
+              <div className="text-slate-300">{t('features.stats.currentVersion')}</div>
             </div>
             <div>
               <motion.div
@@ -257,7 +256,7 @@ const FeatureShowcase = () => {
               >
                 Neu!
               </motion.div>
-              <div className="text-slate-300">Frisch auf CurseForge</div>
+              <div className="text-slate-300">{t('features.stats.fresh')}</div>
             </div>
           </div>
         </motion.div>
