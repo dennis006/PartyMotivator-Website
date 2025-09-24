@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
-const LoadingScreen = () => {
+interface LoadingScreenProps {
+  onComplete?: () => void
+}
+
+const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
   const [progress, setProgress] = useState(0)
   const [loadingText, setLoadingText] = useState('Initializing addon...')
-  const [textStartTime, setTextStartTime] = useState(Date.now())
 
   const loadingMessages = [
     'Initializing addon...',
@@ -17,41 +20,28 @@ const LoadingScreen = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setProgress(prev => {
-        const currentTime = Date.now()
-        const timeSinceLastChange = currentTime - textStartTime
+        const newProgress = Math.min(prev + Math.random() * 3 + 2, 100)
         
-        // Only progress if text has been displayed for at least 1.5 seconds
-        if (timeSinceLastChange >= 1500) {
-          const newProgress = Math.min(prev + Math.random() * 6 + 2, 100)
-          
-          // Update loading text based on progress
-          if (newProgress < 20) {
-            setLoadingText(loadingMessages[0])
-            setTextStartTime(currentTime)
-          } else if (newProgress < 40) {
-            setLoadingText(loadingMessages[1])
-            setTextStartTime(currentTime)
-          } else if (newProgress < 60) {
-            setLoadingText(loadingMessages[2])
-            setTextStartTime(currentTime)
-          } else if (newProgress < 80) {
-            setLoadingText(loadingMessages[3])
-            setTextStartTime(currentTime)
-          } else {
-            setLoadingText(loadingMessages[4])
-            setTextStartTime(currentTime)
-          }
-          
-          return newProgress
+        // Update loading text based on progress - mit kleineren Bereichen für gleichmäßige Verteilung
+        if (newProgress < 20) setLoadingText(loadingMessages[0])
+        else if (newProgress < 40) setLoadingText(loadingMessages[1])
+        else if (newProgress < 60) setLoadingText(loadingMessages[2])
+        else if (newProgress < 80) setLoadingText(loadingMessages[3])
+        else setLoadingText(loadingMessages[4])
+        
+        // Wenn 100% erreicht, warte kurz und dann onComplete aufrufen
+        if (newProgress >= 100) {
+          setTimeout(() => {
+            if (onComplete) onComplete()
+          }, 1200) // 1.2 Sekunden warten nach "Ready for adventure!"
         }
         
-        // Don't progress if text hasn't been displayed long enough
-        return prev
+        return newProgress
       })
-    }, 300) // Slower interval
+    }, 250)
 
     return () => clearInterval(interval)
-  }, [textStartTime])
+  }, [onComplete])
 
   return (
     <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center z-50">
@@ -127,11 +117,10 @@ const LoadingScreen = () => {
         {/* Loading text */}
         <motion.p
           key={loadingText}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.5 }}
-          className="text-xl text-slate-300 font-body typewriter min-h-[2rem] flex items-center justify-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+          className="text-xl text-slate-300 font-body typewriter"
         >
           {loadingText}
         </motion.p>

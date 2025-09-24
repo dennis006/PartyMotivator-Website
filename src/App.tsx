@@ -15,14 +15,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
-  useEffect(() => {
-    // Simulate loading time - allow all 5 texts to be shown (8 seconds)
-    const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 8000) // 8 seconds - enough time to read all texts comfortably
-
-    return () => clearTimeout(timer)
-  }, [])
+  // Loading wird jetzt vom LoadingScreen selbst gesteuert
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -36,8 +29,12 @@ function App() {
     return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
 
+  const handleLoadingComplete = () => {
+    setIsLoading(false)
+  }
+
   if (isLoading) {
-    return <LoadingScreen />
+    return <LoadingScreen onComplete={handleLoadingComplete} />
   }
 
   return (
