@@ -17,24 +17,24 @@ const LoadingScreen = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setProgress(prev => {
-        const newProgress = Math.min(prev + Math.random() * 8 + 2, 100)
+        const newProgress = Math.min(prev + Math.random() * 4 + 1, 100)
         
         // Update loading text based on progress with minimum display time
         const currentTime = Date.now()
         const timeSinceLastChange = currentTime - textStartTime
         
-        // Only change text if it's been displayed for at least 1.5 seconds
-        if (timeSinceLastChange >= 1500) {
-          if (newProgress < 15) {
+        // Only change text if it's been displayed for at least 2 seconds
+        if (timeSinceLastChange >= 2000) {
+          if (newProgress < 20) {
             setLoadingText(loadingMessages[0])
             setTextStartTime(currentTime)
-          } else if (newProgress < 35) {
+          } else if (newProgress < 40) {
             setLoadingText(loadingMessages[1])
             setTextStartTime(currentTime)
-          } else if (newProgress < 55) {
+          } else if (newProgress < 60) {
             setLoadingText(loadingMessages[2])
             setTextStartTime(currentTime)
-          } else if (newProgress < 75) {
+          } else if (newProgress < 80) {
             setLoadingText(loadingMessages[3])
             setTextStartTime(currentTime)
           } else {
@@ -42,6 +42,9 @@ const LoadingScreen = () => {
             setTextStartTime(currentTime)
           }
         }
+        
+        // Debug: Log progress and text changes
+        console.log(`Progress: ${Math.round(newProgress)}%, Text: ${loadingText}, Time since change: ${timeSinceLastChange}ms`)
         
         return newProgress
       })
