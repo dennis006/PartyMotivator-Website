@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Github, ExternalLink, Mail, Heart, Code, Users } from 'lucide-react'
+import { Github, ExternalLink, Mail, Code, Users } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import Impressum from './Impressum'
 import Datenschutz from './Datenschutz'

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowLeft, FileText, Github, Heart, Code, Users, Shield } from 'lucide-react'
+import { ArrowLeft, FileText, Heart, Code, Users, Shield } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 interface LizenzProps {
