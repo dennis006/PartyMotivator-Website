@@ -1,0 +1,126 @@
+/* Custom fonts */
+.font-gaming {
+  font-family: 'Orbitron', 'Inter', monospace;
+}
+
+.font-body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Skewed sections */
+.skew-section {
+  position: relative;
+}
+
+.skew-section::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: inherit;
+  transform: skewY(-2deg);
+  transform-origin: top left;
+}
+
+.skew-section::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: inherit;
+  transform: skewY(-2deg);
+  transform-origin: bottom right;
+}
+
+/* Custom neon effects */
+.neon-glow {
+  box-shadow: 
+    0 0 5px theme('colors.party.primary'),
+    0 0 10px theme('colors.party.primary'),
+    0 0 15px theme('colors.party.primary'),
+    0 0 20px theme('colors.party.primary');
+}
+
+.neon-text {
+  text-shadow:
+    0 0 5px theme('colors.party.primary'),
+    0 0 10px theme('colors.party.primary'),
+    0 0 15px theme('colors.party.primary'),
+    0 0 20px theme('colors.party.primary');
+}
+
+/* Gaming UI Elements */
+.health-bar {
+  background: linear-gradient(to right, #ff0000 0%, #ffff00 50%, #00ff00 100%);
+  border: 2px solid #333;
+  border-radius: 2px;
+}
+
+.mana-bar {
+  background: linear-gradient(to right, #0099ff 0%, #0066cc 100%);
+  border: 2px solid #333;
+  border-radius: 2px;
+}
+
+.chat-window {
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #666;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+/* Holographic effect */
+.holographic {
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 70%
+  );
+  background-size: 250% 250%;
+  animation: holographic-shine 3s ease-in-out infinite;
+}
+
+@keyframes holographic-shine {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* Tilt effect for cards */
+.tilt-card {
+  perspective: 1000px;
+}
+
+.tilt-card-inner {
+  transition: transform 0.3s ease-out;
+  transform-style: preserve-3d;
+}
+
+.tilt-card:hover .tilt-card-inner {
+  transform: rotateY(10deg) rotateX(10deg);
+}
+
+/* Floating animation variants */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-30px) rotate(5deg); }
+}
+
+@keyframes float-medium {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(-3deg); }
+}
+
+@keyframes float-fast {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(2deg); }
+}
+
+.float-slow { animation: float-slow 6s ease-in-out infinite; }
+.float-medium { animation: float-medium 4s ease-in-out infinite; }
+.float-fast { animation: float-fast 3s ease-in-out infinite; }
