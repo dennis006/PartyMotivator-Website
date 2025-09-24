@@ -113,7 +113,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-5xl lg:text-7xl font-gaming font-bold mb-6 leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-gaming font-bold mb-6 leading-tight"
             >
               <span className="text-party-primary glitch" data-text="Party">
                 Party

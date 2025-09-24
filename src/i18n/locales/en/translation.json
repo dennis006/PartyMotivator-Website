@@ -1,0 +1,180 @@
+{
+  "loading": {
+    "addon": "Loading addon...",
+    "connecting": "Connecting to party...",
+    "ready": "Ready for adventure!"
+  },
+  "header": {
+    "download": "Download",
+    "github": "GitHub", 
+    "discord": "Discord"
+  },
+  "hero": {
+    "title": "Motivational WoW Addon",
+    "subtitle": "Transform your Mythic+ runs with automatic motivational messages and boost team morale!",
+    "downloadCta": "Download Now",
+    "githubCta": "View on GitHub",
+    "stats": {
+      "downloads": "Downloads",
+      "version": "Current Version",
+      "status": "New! Fresh on CurseForge"
+    }
+  },
+  "features": {
+    "title": "Why Players Use PartyMotivator",
+    "subtitle": "Discover the features that make your dungeon runs successful",
+    "items": {
+      "autoMessages": {
+        "title": "Automatic Messages",
+        "description": "Sends motivating messages at the start of dungeons and Mythic+ runs"
+      },
+      "successCelebration": {
+        "title": "Success Celebrations", 
+        "description": "Automatically celebrates successful key upgrades and perfect timers"
+      },
+      "holidayMessages": {
+        "title": "Seasonal Messages",
+        "description": "Special messages for WoW events and holidays"
+      },
+      "profileManagement": {
+        "title": "Profile Management",
+        "description": "Save and share your favorite messages with friends"
+      },
+      "easyConfig": {
+        "title": "Easy Configuration",
+        "description": "User-friendly interface for all settings"
+      },
+      "teamMorale": {
+        "title": "Team Morale Boost",
+        "description": "Improves your group's mood and motivation"
+      }
+    }
+  },
+  "demo": {
+    "title": "Live Demo",
+    "subtitle": "Experience PartyMotivator in action! See how the addon automatically sends motivating messages and leads your team to success.",
+    "controls": {
+      "title": "Demo Controls",
+      "play": "Play",
+      "pause": "Pause",
+      "reset": "Reset", 
+      "progress": "Demo Progress",
+      "scenario": "Scenario: Mythic+ Dungeon Run",
+      "description": "PartyMotivator automatically sends motivating messages at the start and congratulates on successful completion."
+    },
+    "features": {
+      "title": "Features in Demo",
+      "autoMotivation": "Automatic motivational messages",
+      "successMessages": "Success messages on key upgrade",
+      "smartTiming": "Intelligent timing detection", 
+      "teamMorale": "Team morale boost"
+    },
+    "chat": {
+      "header": "Party Chat",
+      "active": "PartyMotivator Active",
+      "placeholder": "PartyMotivator handles this automatically..."
+    }
+  },
+  "gallery": {
+    "title": "Addon Screenshots",
+    "subtitle": "Discover the user-friendly interface and powerful features",
+    "categories": {
+      "all": "All",
+      "ui": "User Interface", 
+      "ingame": "In Game",
+      "features": "Features"
+    },
+    "screenshots": {
+      "mainUI": "Main Configuration",
+      "chatIntegration": "Chat Integration",
+      "mythicSetup": "Mythic+ Settings",
+      "holidayMessages": "Holiday Messages",
+      "profileManagement": "Profile Management",
+      "liveDemo": "Live Demo"
+    }
+  },
+  "download": {
+    "title": "Download PartyMotivator",
+    "subtitle": "Choose your preferred download method and get started today!",
+    "curseforge": {
+      "title": "CurseForge",
+      "description": "Official release with automatic updates",
+      "stats": "Downloads",
+      "cta": "Download from CurseForge"
+    },
+    "github": {
+      "title": "GitHub",
+      "description": "Source code, issues, and developer resources",
+      "cta": "View on GitHub"
+    },
+    "installation": {
+      "title": "Installation",
+      "steps": {
+        "download": "Download the addon",
+        "extract": "Extract to Interface/AddOns/",
+        "restart": "Restart World of Warcraft"
+      }
+    }
+  },
+  "footer": {
+    "brand": "PartyMotivator",
+    "description": "The ultimate WoW addon for motivational messages in dungeons and Mythic+ runs.",
+    "navigation": {
+      "title": "Navigation",
+      "features": "Features",
+      "demo": "Demo", 
+      "gallery": "Gallery",
+      "download": "Download"
+    },
+    "community": {
+      "title": "Community",
+      "github": "GitHub",
+      "discord": "Discord",
+      "curseforge": "CurseForge"
+    },
+    "support": {
+      "title": "Support", 
+      "discord": "Discord Server",
+      "issues": "GitHub Issues",
+      "documentation": "Documentation"
+    },
+    "legal": {
+      "title": "Legal",
+      "impressum": "Legal Notice",
+      "privacy": "Privacy Policy",
+      "license": "License"
+    },
+    "copyright": "Made with ❤️ for the WoW Community"
+  },
+  "legal": {
+    "impressum": {
+      "title": "Legal Notice",
+      "operator": "Operator",
+      "contact": "Contact",
+      "disclaimer": "Disclaimer",
+      "wowDisclaimer": "WoW/Blizzard Notice",
+      "dataCollection": "Data Collection"
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "general": "General Information",
+      "responsible": "Responsible Party",
+      "dataCollection": "Data Collection",
+      "serverLogs": "Server Log Files", 
+      "addon": "PartyMotivator Addon",
+      "rights": "Your Rights",
+      "changes": "Policy Changes"
+    },
+    "license": {
+      "title": "MIT License",
+      "allowed": "What's Allowed",
+      "required": "What's Required",
+      "fullText": "Full License Text"
+    }
+  },
+  "language": {
+    "switch": "Switch Language",
+    "german": "Deutsch",
+    "english": "English"
+  }
+}

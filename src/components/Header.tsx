@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Menu, X, Download } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+import LanguageSwitcher from './LanguageSwitcher'
 
 const Header = () => {
+  const { t } = useTranslation()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -16,10 +19,10 @@ const Header = () => {
   }, [])
 
   const navigation = [
-    { name: 'Features', href: '#features' },
-    { name: 'Screenshots', href: '#gallery' },
-    { name: 'Download', href: '#download' },
-    { name: 'GitHub', href: 'https://github.com/dennis006/PartyMotivator', external: true },
+    { name: t('footer.navigation.features'), href: '#features' },
+    { name: t('footer.navigation.gallery'), href: '#gallery' },
+    { name: t('footer.navigation.download'), href: '#download' },
+    { name: t('header.github'), href: 'https://github.com/dennis006/PartyMotivator', external: true },
   ]
 
   return (
@@ -75,6 +78,9 @@ const Header = () => {
               </motion.a>
             ))}
             
+            {/* Language Switcher */}
+            <LanguageSwitcher />
+            
             {/* CTA Button */}
             <motion.a
               href="#download"
@@ -83,7 +89,7 @@ const Header = () => {
               className="bg-gradient-to-r from-party-primary to-party-secondary text-black px-6 py-2 rounded-lg font-semibold flex items-center space-x-2 hover:shadow-lg transition-all duration-300"
             >
               <Download size={16} />
-              <span>Download</span>
+              <span>{t('header.download')}</span>
             </motion.a>
           </nav>
 

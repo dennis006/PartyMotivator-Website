@@ -1,0 +1,180 @@
+{
+  "loading": {
+    "addon": "Addon wird geladen...",
+    "connecting": "Verbindung zur Gruppe...",
+    "ready": "Bereit für das Abenteuer!"
+  },
+  "header": {
+    "download": "Herunterladen",
+    "github": "GitHub",
+    "discord": "Discord"
+  },
+  "hero": {
+    "title": "Motivational WoW Addon",
+    "subtitle": "Verwandle deine Mythic+ Runs mit automatischen Motivationsnachrichten und steigere die Team-Moral!",
+    "downloadCta": "Jetzt herunterladen",
+    "githubCta": "Auf GitHub ansehen",
+    "stats": {
+      "downloads": "Downloads",
+      "version": "Aktuelle Version", 
+      "status": "Neu! Frisch auf CurseForge"
+    }
+  },
+  "features": {
+    "title": "Warum Spieler PartyMotivator verwenden",
+    "subtitle": "Entdecke die Funktionen, die deine Dungeon-Runs zum Erfolg führen",
+    "items": {
+      "autoMessages": {
+        "title": "Automatische Nachrichten",
+        "description": "Sendet motivierende Nachrichten zu Beginn von Dungeons und Mythic+ Runs"
+      },
+      "successCelebration": {
+        "title": "Erfolgs-Gratulationen",
+        "description": "Feiert automatisch erfolgreiche Key-Upgrades und perfekte Timer"
+      },
+      "holidayMessages": {
+        "title": "Saisonale Nachrichten",
+        "description": "Spezielle Nachrichten für WoW-Events und Feiertage"
+      },
+      "profileManagement": {
+        "title": "Profil-Management",
+        "description": "Speichere und teile deine Lieblingsnachrichten mit Freunden"
+      },
+      "easyConfig": {
+        "title": "Einfache Konfiguration",
+        "description": "Benutzerfreundliche Oberfläche für alle Einstellungen"
+      },
+      "teamMorale": {
+        "title": "Team-Moral Boost",
+        "description": "Verbessert die Stimmung und Motivation deiner Gruppe"
+      }
+    }
+  },
+  "demo": {
+    "title": "Live Demo",
+    "subtitle": "Erlebe PartyMotivator in Aktion! Sieh dir an, wie das Addon automatisch motivierende Nachrichten sendet und dein Team zum Erfolg führt.",
+    "controls": {
+      "title": "Demo Steuerung",
+      "play": "Abspielen",
+      "pause": "Pausieren", 
+      "reset": "Zurücksetzen",
+      "progress": "Demo Fortschritt",
+      "scenario": "Szenario: Mythic+ Dungeon Run",
+      "description": "PartyMotivator sendet automatisch motivierende Nachrichten zu Beginn und gratuliert bei erfolgreichem Abschluss."
+    },
+    "features": {
+      "title": "Features in Demo",
+      "autoMotivation": "Automatische Motivationsnachrichten",
+      "successMessages": "Erfolgsnachrichten bei Key-Upgrade", 
+      "smartTiming": "Intelligente Timing-Erkennung",
+      "teamMorale": "Team-Moral Boost"
+    },
+    "chat": {
+      "header": "Gruppen-Chat",
+      "active": "PartyMotivator Aktiv",
+      "placeholder": "PartyMotivator übernimmt das automatisch..."
+    }
+  },
+  "gallery": {
+    "title": "Addon Screenshots",
+    "subtitle": "Entdecke die benutzerfreundliche Oberfläche und mächtigen Features",
+    "categories": {
+      "all": "Alle",
+      "ui": "Benutzeroberfläche",
+      "ingame": "Im Spiel",
+      "features": "Features"
+    },
+    "screenshots": {
+      "mainUI": "Haupt-Konfiguration",
+      "chatIntegration": "Chat Integration",
+      "mythicSetup": "Mythic+ Einstellungen",
+      "holidayMessages": "Feiertagsnachrichten",
+      "profileManagement": "Profil-Verwaltung",
+      "liveDemo": "Live Demo"
+    }
+  },
+  "download": {
+    "title": "PartyMotivator herunterladen",
+    "subtitle": "Wähle deine bevorzugte Download-Methode und starte noch heute!",
+    "curseforge": {
+      "title": "CurseForge",
+      "description": "Offizielle Veröffentlichung mit automatischen Updates",
+      "stats": "Downloads",
+      "cta": "Von CurseForge herunterladen"
+    },
+    "github": {
+      "title": "GitHub",
+      "description": "Quellcode, Issues und Entwickler-Ressourcen",
+      "cta": "Auf GitHub ansehen"
+    },
+    "installation": {
+      "title": "Installation",
+      "steps": {
+        "download": "Addon herunterladen",
+        "extract": "In Interface/AddOns/ entpacken", 
+        "restart": "World of Warcraft neustarten"
+      }
+    }
+  },
+  "footer": {
+    "brand": "PartyMotivator",
+    "description": "Das ultimative WoW Addon für Motivationsnachrichten in Dungeons und Mythic+ Runs.",
+    "navigation": {
+      "title": "Navigation",
+      "features": "Features",
+      "demo": "Demo",
+      "gallery": "Galerie",
+      "download": "Download"
+    },
+    "community": {
+      "title": "Community",
+      "github": "GitHub",
+      "discord": "Discord",
+      "curseforge": "CurseForge"
+    },
+    "support": {
+      "title": "Support",
+      "discord": "Discord Server",
+      "issues": "GitHub Issues",
+      "documentation": "Dokumentation"
+    },
+    "legal": {
+      "title": "Rechtliches",
+      "impressum": "Impressum",
+      "privacy": "Datenschutz",
+      "license": "Lizenz"
+    },
+    "copyright": "Erstellt mit ❤️ für die WoW Community"
+  },
+  "legal": {
+    "impressum": {
+      "title": "Impressum",
+      "operator": "Betreiber",
+      "contact": "Kontakt",
+      "disclaimer": "Haftungsausschluss",
+      "wowDisclaimer": "WoW/Blizzard Hinweis",
+      "dataCollection": "Datenerfassung"
+    },
+    "privacy": {
+      "title": "Datenschutzerklärung",
+      "general": "Allgemeine Hinweise",
+      "responsible": "Verantwortlicher",
+      "dataCollection": "Datenerfassung",
+      "serverLogs": "Server-Logdateien",
+      "addon": "PartyMotivator Addon",
+      "rights": "Ihre Rechte",
+      "changes": "Änderungen"
+    },
+    "license": {
+      "title": "MIT Lizenz",
+      "allowed": "Was ist erlaubt",
+      "required": "Was ist erforderlich",
+      "fullText": "Vollständiger Lizenztext"
+    }
+  },
+  "language": {
+    "switch": "Sprache wechseln",
+    "german": "Deutsch", 
+    "english": "English"
+  }
+}

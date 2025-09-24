@@ -118,7 +118,7 @@ const FeatureShowcase = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl lg:text-5xl font-gaming font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-gaming font-bold mb-6">
             <span className="text-white">Warum </span>
             <span className="text-party-primary">PartyMotivator</span>
             <span className="text-white">?</span>

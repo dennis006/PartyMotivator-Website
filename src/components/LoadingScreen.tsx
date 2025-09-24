@@ -1,13 +1,15 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 interface LoadingScreenProps {
   onComplete?: () => void
 }
 
 const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
+  const { t } = useTranslation()
   const [progress, setProgress] = useState(0)
-  const [loadingText, setLoadingText] = useState('Loading addon...')
+  const [loadingText, setLoadingText] = useState('')
   const onCompleteRef = useRef(onComplete)
   
   // Update ref wenn onComplete sich ändert
@@ -16,9 +18,12 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
   }, [onComplete])
 
   useEffect(() => {
+    // Set initial text
+    setLoadingText(t('loading.addon'))
+    
     // Alle Timer-IDs speichern um sie cleanup zu können
-    const timer1 = setTimeout(() => setLoadingText('Connecting to party...'), 2500)
-    const timer2 = setTimeout(() => setLoadingText('Ready for adventure!'), 5000)
+    const timer1 = setTimeout(() => setLoadingText(t('loading.connecting')), 2500)
+    const timer2 = setTimeout(() => setLoadingText(t('loading.ready')), 5000)
     const timer3 = setTimeout(() => {
       if (onCompleteRef.current) onCompleteRef.current()
     }, 7500)
@@ -29,7 +34,7 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
       clearTimeout(timer2)
       clearTimeout(timer3)
     }
-  }, []) // Läuft nur einmal - keine Re-Renders!
+  }, [t]) // Include t in dependencies
 
   // Progress-Update (smooth animation)
   useEffect(() => {
@@ -88,14 +93,14 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="text-5xl font-gaming font-bold mb-4 neon-text"
+          className="text-3xl sm:text-4xl lg:text-5xl font-gaming font-bold mb-4 neon-text px-4"
         >
           <span className="text-party-primary">Party</span>
           <span className="text-party-secondary">Motivator</span>
         </motion.h1>
 
         {/* Loading progress */}
-        <div className="w-80 mx-auto mb-6">
+        <div className="w-72 sm:w-80 mx-auto mb-6 px-4">
           <div className="bg-slate-800 rounded-full h-4 overflow-hidden border-2 border-slate-600">
             <motion.div
               className="h-full bg-gradient-to-r from-party-primary to-party-secondary"
@@ -117,7 +122,7 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
-          className="text-xl text-slate-300 font-body typewriter"
+          className="text-lg sm:text-xl text-slate-300 font-body typewriter px-4 text-center"
         >
           {loadingText}
         </motion.p>
@@ -146,7 +151,7 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2 }}
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-slate-500 text-sm"
+          className="absolute bottom-6 sm:bottom-10 left-1/2 transform -translate-x-1/2 text-slate-500 text-xs sm:text-sm px-4 text-center"
         >
           Version 1.3.0 | by xMethface
         </motion.div>

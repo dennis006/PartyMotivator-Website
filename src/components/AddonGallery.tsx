@@ -89,7 +89,7 @@ const AddonGallery = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl lg:text-5xl font-gaming font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-gaming font-bold mb-6">
             <span className="text-white">Addon </span>
             <span className="text-party-primary">Screenshots</span>
           </h2>
