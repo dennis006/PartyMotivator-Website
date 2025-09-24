@@ -154,7 +154,10 @@ const AddonGallery = () => {
                       onError={(e) => {
                         // Fallback falls Bild nicht gefunden wird
                         e.currentTarget.style.display = 'none'
-                        e.currentTarget.nextElementSibling.style.display = 'flex'
+                        const nextElement = e.currentTarget.nextElementSibling as HTMLElement;
+                        if (nextElement && nextElement.style) {
+                          nextElement.style.display = 'flex'
+                        }
                       }}
                     />
                     
@@ -256,7 +259,10 @@ const AddonGallery = () => {
                       onError={(e) => {
                         // Fallback falls Bild nicht gefunden wird
                         e.currentTarget.style.display = 'none'
-                        e.currentTarget.nextElementSibling.style.display = 'flex'
+                        const nextElement = e.currentTarget.nextElementSibling as HTMLElement;
+                        if (nextElement && nextElement.style) {
+                          nextElement.style.display = 'flex'
+                        }
                       }}
                     />
                     

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowLeft, Mail, User, Code, Heart } from 'lucide-react'
+import { ArrowLeft, User, Code, Heart } from 'lucide-react'
 
 interface ImpressumProps {
   onClose: () => void
