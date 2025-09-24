@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion'
 import { Download, Github, ExternalLink, Shield, Zap, Users, Star } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import { useAddonStatsSimple as useAddonStats, formatDownloads } from '../hooks/useAddonStats-simple'
 
 const DownloadSection = () => {
   const { t } = useTranslation()
+  const { downloads } = useAddonStats()
   
   const downloadOptions = [
     {
@@ -12,7 +14,7 @@ const DownloadSection = () => {
       description: t('download.curseforge.description'),
       url: "https://www.curseforge.com/wow/addons/partymotivator",
       primary: true,
-      stats: "38+ Downloads"
+      stats: `${formatDownloads(downloads)} Downloads`
     },
     {
       platform: "GitHub",

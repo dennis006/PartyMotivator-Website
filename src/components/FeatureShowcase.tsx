@@ -12,9 +12,21 @@ import {
   Star
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import { useAddonStatsSimple as useAddonStats, formatDownloads } from '../hooks/useAddonStats-simple'
+import { ADDON_CONFIG } from '../config/addonConfig'
 
 const FeatureShowcase = () => {
   const { t } = useTranslation()
+  const { downloads, version, loading } = useAddonStats()
+  
+  // Helper function für "New!" Badge
+  const isNewRelease = () => {
+    const releaseDate = new Date(ADDON_CONFIG.RELEASE_DATE);
+    const now = new Date();
+    const daysDiff = Math.floor((now.getTime() - releaseDate.getTime()) / (1000 * 60 * 60 * 24));
+    return daysDiff <= 30; // Als "neu" für 30 Tage
+  };
+  
   const features = [
     {
       icon: MessageCircle,
@@ -230,7 +242,7 @@ const FeatureShowcase = () => {
                 viewport={{ once: true }}
                 className="text-4xl font-bold text-party-primary mb-2"
               >
-                38+
+                {loading ? '...' : formatDownloads(downloads)}
               </motion.div>
               <div className="text-slate-300">{t('features.stats.downloads')}</div>
             </div>
@@ -242,7 +254,7 @@ const FeatureShowcase = () => {
                 viewport={{ once: true }}
                 className="text-4xl font-bold text-party-secondary mb-2"
               >
-                v1.3.0
+                {loading ? '...' : version}
               </motion.div>
               <div className="text-slate-300">{t('features.stats.currentVersion')}</div>
             </div>
@@ -254,9 +266,11 @@ const FeatureShowcase = () => {
                 viewport={{ once: true }}
                 className="text-4xl font-bold text-party-primary mb-2"
               >
-                Neu!
+                {isNewRelease() ? t('features.stats.fresh') : `${ADDON_CONFIG.FEATURES_COUNT}+`}
               </motion.div>
-              <div className="text-slate-300">{t('features.stats.fresh')}</div>
+              <div className="text-slate-300">
+                {isNewRelease() ? "Latest Update" : "Features"}
+              </div>
             </div>
           </div>
         </motion.div>

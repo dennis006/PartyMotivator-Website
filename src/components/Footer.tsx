@@ -2,12 +2,15 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Github, ExternalLink, Mail, Code, Users } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import { useAddonStatsSimple as useAddonStats, formatDownloads } from '../hooks/useAddonStats-simple'
+import { ADDON_CONFIG } from '../config/addonConfig'
 import Impressum from './Impressum'
 import Datenschutz from './Datenschutz'
 import Lizenz from './Lizenz'
 
 const Footer = () => {
   const { t } = useTranslation()
+  const { downloads, version, loading } = useAddonStats()
   const currentYear = new Date().getFullYear()
   const [showImpressum, setShowImpressum] = useState(false)
   const [showDatenschutz, setShowDatenschutz] = useState(false)
@@ -23,7 +26,6 @@ const Footer = () => {
     community: [
       { name: t('footer.community.github'), href: "https://github.com/dennis006/PartyMotivator", external: true },
       { name: t('footer.community.curseforge'), href: "https://www.curseforge.com/wow/addons/partymotivator", external: true },
-      { name: t('footer.community.discord'), href: "https://discord.gg/bUsnWHAqRG", external: true },
       { name: t('footer.support.discord'), href: "https://discord.gg/bUsnWHAqRG", external: true }
     ],
     legal: [
@@ -99,12 +101,23 @@ const Footer = () => {
               {/* Stats */}
               <div className="grid grid-cols-2 gap-4">
                 <div className="text-center p-3 bg-slate-800/50 backdrop-blur-sm rounded-lg">
-                  <div className="text-lg font-bold text-party-primary">38+</div>
+                  <div className="text-lg font-bold text-party-primary">
+                    {loading ? '...' : formatDownloads(downloads)}
+                  </div>
                   <div className="text-xs text-slate-500">{t('hero.stats.downloads')}</div>
                 </div>
                 <div className="text-center p-3 bg-slate-800/50 backdrop-blur-sm rounded-lg">
-                  <div className="text-lg font-bold text-party-secondary">v1.3.0</div>
+                  <div className="text-lg font-bold text-party-secondary">
+                    {loading ? '...' : version}
+                  </div>
                   <div className="text-xs text-slate-500">{t('footer.latest')}</div>
+                </div>
+              </div>
+              
+              {/* Release Date - kleiner Text unter Stats */}
+              <div className="text-center mt-4">
+                <div className="text-xs text-slate-500">
+                  Released: {new Date(ADDON_CONFIG.RELEASE_DATE).toLocaleDateString('de-DE')}
                 </div>
               </div>
             </motion.div>

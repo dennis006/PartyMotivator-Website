@@ -2,9 +2,12 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Play, Download, Star, Users, MessageCircle, Gamepad2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import { useAddonStatsSimple as useAddonStats, formatDownloads } from '../hooks/useAddonStats-simple'
+import { ADDON_CONFIG } from '../config/addonConfig'
 
 const HeroSection = () => {
   const { t } = useTranslation()
+  const { downloads, version } = useAddonStats()
   const [currentMessage, setCurrentMessage] = useState(0)
   const [isTyping, setIsTyping] = useState(false)
 
@@ -18,11 +21,19 @@ const HeroSection = () => {
     "Perfect execution time!"
   ]
 
+  // Helper function für "New!" Badge
+  const isNewRelease = () => {
+    const releaseDate = new Date(ADDON_CONFIG.RELEASE_DATE);
+    const now = new Date();
+    const daysDiff = Math.floor((now.getTime() - releaseDate.getTime()) / (1000 * 60 * 60 * 24));
+    return daysDiff <= 30; // Als "neu" für 30 Tage
+  };
+
   const stats = [
-    { icon: Users, value: "38+", label: t('hero.stats.downloads') },
-    { icon: MessageCircle, value: "500+", label: t('hero.stats.messages') },
-    { icon: Star, value: t('hero.stats.new'), label: t('hero.stats.addon') },
-    { icon: Gamepad2, value: "v1.3.0", label: t('hero.stats.version') }
+    { icon: Users, value: formatDownloads(downloads), label: t('hero.stats.downloads') },
+    { icon: MessageCircle, value: `${ADDON_CONFIG.TOTAL_MESSAGES}+`, label: t('hero.stats.messages') },
+    { icon: Star, value: isNewRelease() ? t('hero.stats.new') : `${ADDON_CONFIG.FEATURES_COUNT}+`, label: isNewRelease() ? t('hero.stats.addon') : "Features" },
+    { icon: Gamepad2, value: version, label: t('hero.stats.version') }
   ]
 
   useEffect(() => {
