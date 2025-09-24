@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 const LoadingScreen = () => {
   const [progress, setProgress] = useState(0)
   const [loadingText, setLoadingText] = useState('Initializing addon...')
+  const [textStartTime, setTextStartTime] = useState(Date.now())
 
   const loadingMessages = [
     'Initializing addon...',
@@ -16,21 +17,38 @@ const LoadingScreen = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setProgress(prev => {
-        const newProgress = Math.min(prev + Math.random() * 15, 100)
+        const newProgress = Math.min(prev + Math.random() * 8 + 2, 100)
         
-        // Update loading text based on progress
-        if (newProgress < 20) setLoadingText(loadingMessages[0])
-        else if (newProgress < 40) setLoadingText(loadingMessages[1])
-        else if (newProgress < 60) setLoadingText(loadingMessages[2])
-        else if (newProgress < 80) setLoadingText(loadingMessages[3])
-        else setLoadingText(loadingMessages[4])
+        // Update loading text based on progress with minimum display time
+        const currentTime = Date.now()
+        const timeSinceLastChange = currentTime - textStartTime
+        
+        // Only change text if it's been displayed for at least 1.5 seconds
+        if (timeSinceLastChange >= 1500) {
+          if (newProgress < 15) {
+            setLoadingText(loadingMessages[0])
+            setTextStartTime(currentTime)
+          } else if (newProgress < 35) {
+            setLoadingText(loadingMessages[1])
+            setTextStartTime(currentTime)
+          } else if (newProgress < 55) {
+            setLoadingText(loadingMessages[2])
+            setTextStartTime(currentTime)
+          } else if (newProgress < 75) {
+            setLoadingText(loadingMessages[3])
+            setTextStartTime(currentTime)
+          } else {
+            setLoadingText(loadingMessages[4])
+            setTextStartTime(currentTime)
+          }
+        }
         
         return newProgress
       })
-    }, 150)
+    }, 300) // Slower interval
 
     return () => clearInterval(interval)
-  }, [])
+  }, [textStartTime])
 
   return (
     <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center z-50">
@@ -106,10 +124,11 @@ const LoadingScreen = () => {
         {/* Loading text */}
         <motion.p
           key={loadingText}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-          className="text-xl text-slate-300 font-body typewriter"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.5 }}
+          className="text-xl text-slate-300 font-body typewriter min-h-[2rem] flex items-center justify-center"
         >
           {loadingText}
         </motion.p>
