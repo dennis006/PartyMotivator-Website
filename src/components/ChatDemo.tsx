@@ -41,25 +41,25 @@ const ChatDemo = () => {
       timestamp: '19:42:09'
     },
     {
-      delay: 5000,
+      delay: 3000,
       type: 'system',
       message: 'Blightbone defeated!',
       timestamp: '19:45:32'
     },
     {
-      delay: 15000,
+      delay: 3500,
       type: 'system',
       message: 'Amarth defeated!',
       timestamp: '19:48:15'
     },
     {
-      delay: 20000,
+      delay: 4000,
       type: 'system',
       message: 'Surgeon Stitchflesh defeated!',
       timestamp: '19:52:03'
     },
     {
-      delay: 18000,
+      delay: 3500,
       type: 'system',
       message: 'Nalthor the Rimebinder defeated!',
       timestamp: '19:55:41'

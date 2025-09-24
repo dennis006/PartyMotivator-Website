@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 
 interface LoadingScreenProps {
@@ -7,41 +7,38 @@ interface LoadingScreenProps {
 
 const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
   const [progress, setProgress] = useState(0)
-  const [loadingText, setLoadingText] = useState('Initializing addon...')
-
-  const loadingMessages = [
-    'Initializing addon...',
-    'Loading motivational messages...',
-    'Connecting to party...',
-    'Preparing dungeons...',
-    'Ready for adventure!'
-  ]
+  const [loadingText, setLoadingText] = useState('Loading addon...')
+  const onCompleteRef = useRef(onComplete)
+  
+  // Update ref wenn onComplete sich ändert
+  useEffect(() => {
+    onCompleteRef.current = onComplete
+  }, [onComplete])
 
   useEffect(() => {
+    // Alle Timer-IDs speichern um sie cleanup zu können
+    const timer1 = setTimeout(() => setLoadingText('Connecting to party...'), 2500)
+    const timer2 = setTimeout(() => setLoadingText('Ready for adventure!'), 5000)
+    const timer3 = setTimeout(() => {
+      if (onCompleteRef.current) onCompleteRef.current()
+    }, 7500)
+
+    // Cleanup: Alle Timer löschen wenn Component unmounted oder Effect neu läuft
+    return () => {
+      clearTimeout(timer1)
+      clearTimeout(timer2)
+      clearTimeout(timer3)
+    }
+  }, []) // Läuft nur einmal - keine Re-Renders!
+
+  // Progress-Update (smooth animation)
+  useEffect(() => {
     const interval = setInterval(() => {
-      setProgress(prev => {
-        const newProgress = Math.min(prev + Math.random() * 3 + 2, 100)
-        
-        // Update loading text based on progress - mit kleineren Bereichen für gleichmäßige Verteilung
-        if (newProgress < 20) setLoadingText(loadingMessages[0])
-        else if (newProgress < 40) setLoadingText(loadingMessages[1])
-        else if (newProgress < 60) setLoadingText(loadingMessages[2])
-        else if (newProgress < 80) setLoadingText(loadingMessages[3])
-        else setLoadingText(loadingMessages[4])
-        
-        // Wenn 100% erreicht, warte kurz und dann onComplete aufrufen
-        if (newProgress >= 100) {
-          setTimeout(() => {
-            if (onComplete) onComplete()
-          }, 1200) // 1.2 Sekunden warten nach "Ready for adventure!"
-        }
-        
-        return newProgress
-      })
-    }, 250)
+      setProgress(prev => Math.min(prev + Math.random() * 3 + 2, 100))
+    }, 200)
 
     return () => clearInterval(interval)
-  }, [onComplete])
+  }, [])
 
   return (
     <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center z-50">
