@@ -16,10 +16,10 @@ function App() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
-    // Simulate loading time - allow all 5 texts to be shown (6 seconds)
+    // Simulate loading time - allow all 5 texts to be shown (8 seconds)
     const timer = setTimeout(() => {
       setIsLoading(false)
-    }, 6000) // 6 seconds - enough for all texts but not too long
+    }, 8000) // 8 seconds - enough time to read all texts comfortably
 
     return () => clearTimeout(timer)
   }, [])

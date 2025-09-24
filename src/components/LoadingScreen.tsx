@@ -23,8 +23,8 @@ const LoadingScreen = () => {
         const currentTime = Date.now()
         const timeSinceLastChange = currentTime - textStartTime
         
-        // Only change text if it's been displayed for at least 1 second
-        if (timeSinceLastChange >= 1000) {
+        // Only change text if it's been displayed for at least 1.5 seconds
+        if (timeSinceLastChange >= 1500) {
           if (newProgress < 20) {
             setLoadingText(loadingMessages[0])
             setTextStartTime(currentTime)
